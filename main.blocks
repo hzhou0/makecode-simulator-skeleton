@@ -1,0 +1,170 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="T@bvw2F8+Cb|,5JD$b-!">pause</variable><variable id="3VS{ls{1i@/K.M;,JHva">monkey</variable><variable id="pm:~]!BT)W!TB~t(fAd%">box</variable><variable id="7Qcjy5`)C},y%kq1v3!{">blueButton</variable><variable id="R3r|_`%(*Q;*e^B]gK;7">mySprite</variable><variable id="{m80T9Oi4(VT(yNb5Q`h">pinkButton</variable><variable id="6Un$!X_^W+0K-MhtMk-]">unknown</variable><variable id="tc05%X7l1|VSK-5Ufa|6">cheerio</variable><variable id="rEh1bQ:njb].|V(/s^l-">upOrientation</variable><variable id="YLJz^{+-M0-]wN0ku6`Q">sideOrientation</variable><variable id="@:T^l279rjrC=6S;Oa~H">type</variable><variable id="n5d|vAts_l`2jIarbZ22">orientation</variable><variable id="4#Kql4-b3*@X?Bfq6{:v">boxLength</variable><variable id="XU?Zr]lt[VGF]oh{:m-D">boxWidth</variable><variable id=",Banu}rYp|3UIIJ_hRNc">boxHeight</variable><variable id="FA28QrBq77]v_wvD())6">otherSprite</variable><variable id="LP@H#c7T{IGVN9zPnaeb">objectMaterial</variable><variable id="na;ph?xYx!(*pfIv@h(H">objectWeight</variable><variable type="KIND_SpriteKind" id="2j2~EO)z19C|+ojleC$B">Player</variable><variable type="KIND_SpriteKind" id="C)8W|B~W$:iDk=P4Sb0l">Projectile</variable><variable type="KIND_SpriteKind" id="Y]Jl$m$![+s7I5|2dZ7e">Food</variable><variable type="KIND_SpriteKind" id=".l5Tu{VZ5n$TwPznW9%;">Enemy</variable><variable type="KIND_SpriteKind" id="#v`^%qfBqm#;gqa{Q|4k">package</variable><variable type="KIND_SpriteKind" id="%ZH+[,f)R8,}M3kRHz_8">button</variable><variable type="KIND_SpriteKind" id="z+,3ul(RcBbX!7M=hvgw">errorBin</variable><variable type="KIND_SpriteKind" id="w)NU?~MXE:)X+WV(F@B?">cheerioBin</variable><variable type="KIND_SpriteKind" id="wj+u)SmuTJRbw%8!ZQbI">upBin</variable><variable type="KIND_SpriteKind" id="p(/-vof71`@x9@8K.o}B">downBin</variable><variable type="KIND_SpriteKind" id="|V;P$_t%H-yRyXrvxZc]">sideBin</variable><variable type="KIND_SpriteKind" id="R$ts-}-ec`#i0@GKL}J0">unknownBin</variable></variables><block type="function_definition" x="0" y="0"><mutation name="resetBox" functionid="!v5JTp73B$SI-PJoXmu*"/><field name="function_name">resetBox</field><comment pinned="false" h="80" w="160" relx="10" rely="10">Reset to initial conditions with new box and parameters for type and dimensions</comment><statement name="STACK"><block type="variables_set"><field name="VAR" id="@:T^l279rjrC=6S;Oa~H">type</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">2</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="1" else="1"/><value name="IF0"><shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow><block type="logic_compare"><field name="OP">EQ</field><value name="A"><shadow type="math_number" disabled="true"><field name="NUM">0</field></shadow><block type="variables_get"><field name="VAR" id="@:T^l279rjrC=6S;Oa~H">type</field></block></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="4#Kql4-b3*@X?Bfq6{:v">boxLength</field><value name="VALUE"><shadow type="math_number"><field name="NUM">10</field></shadow></value><next><block type="variables_set"><field name="VAR" id="XU?Zr]lt[VGF]oh{:m-D">boxWidth</field><value name="VALUE"><shadow type="math_number"><field name="NUM">10</field></shadow></value><next><block type="variables_set"><field name="VAR" id=",Banu}rYp|3UIIJ_hRNc">boxHeight</field><value name="VALUE"><shadow type="math_number"><field name="NUM">30</field></shadow></value><next><block type="variables_set"><field name="VAR" id="LP@H#c7T{IGVN9zPnaeb">objectMaterial</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="text"><field name="TEXT">Rubber</field></block></value><next><block type="variables_set"><field name="VAR" id="na;ph?xYx!(*pfIv@h(H">objectWeight</field><value name="VALUE"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block></next></block></next></block></next></block></next></block></statement><value name="IF1"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><shadow type="math_number" disabled="true"><field name="NUM">0</field></shadow><block type="variables_get"><field name="VAR" id="@:T^l279rjrC=6S;Oa~H">type</field></block></value><value name="B"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block></value><statement name="DO1"><block type="variables_set"><field name="VAR" id="4#Kql4-b3*@X?Bfq6{:v">boxLength</field><value name="VALUE"><shadow type="math_number"><field name="NUM">20</field></shadow></value><next><block type="variables_set"><field name="VAR" id="XU?Zr]lt[VGF]oh{:m-D">boxWidth</field><value name="VALUE"><shadow type="math_number"><field name="NUM">20</field></shadow></value><next><block type="variables_set"><field name="VAR" id=",Banu}rYp|3UIIJ_hRNc">boxHeight</field><value name="VALUE"><shadow type="math_number"><field name="NUM">20</field></shadow></value><next><block type="variables_set"><field name="VAR" id="n5d|vAts_l`2jIarbZ22">orientation</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="LP@H#c7T{IGVN9zPnaeb">objectMaterial</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="text"><field name="TEXT">Porcelain</field></block></value><next><block type="variables_set"><field name="VAR" id="na;ph?xYx!(*pfIv@h(H">objectWeight</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0.2</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="4#Kql4-b3*@X?Bfq6{:v">boxLength</field><value name="VALUE"><shadow type="math_number"><field name="NUM">20</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">10</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">20</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="XU?Zr]lt[VGF]oh{:m-D">boxWidth</field><value name="VALUE"><shadow type="math_number"><field name="NUM">20</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">10</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">20</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id=",Banu}rYp|3UIIJ_hRNc">boxHeight</field><value name="VALUE"><shadow type="math_number"><field name="NUM">20</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">10</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">30</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="LP@H#c7T{IGVN9zPnaeb">objectMaterial</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="text"><field name="TEXT">Unknown</field></block></value><next><block type="variables_set"><field name="VAR" id="na;ph?xYx!(*pfIv@h(H">objectWeight</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">2</field></shadow></value></block></value></block></next></block></next></block></next></block></next></block></statement><next><block type="console_log"><value name="value"><shadow type="text"><field name="TEXT"/></shadow><block type="variables_get"><field name="VAR" id="@:T^l279rjrC=6S;Oa~H">type</field></block></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.Ghost</field><value name="sprite"><block type="variables_get"><field name="VAR" id="{m80T9Oi4(VT(yNb5Q`h">pinkButton</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">false</field></shadow></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.Ghost</field><value name="sprite"><block type="variables_get"><field name="VAR" id="7Qcjy5`)C},y%kq1v3!{">blueButton</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">false</field></shadow></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.Invisible</field><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">true</field></shadow></value><next><block type="device_pause"><value name="pause"><shadow type="timePicker"><field name="ms">500</field></shadow></value><next><block type="mapplaceontile"><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="loc"><shadow type="mapgettile"><value name="col"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="row"><shadow type="math_number"><field name="NUM">7</field></shadow></value></shadow></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.Invisible</field><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">false</field></shadow></value><next><block type="device_pause"><value name="pause"><shadow type="timePicker"><field name="ms">200</field></shadow></value><next><block type="spritesetvel"><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="vx"><shadow type="spriteSpeedPicker"><field name="speed">25</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker"><field name="speed">0</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="pxt-on-start" x="650" y="0"><comment pinned="false" h="80" w="160" relx="10" rely="10">Create and place game map and objects</comment><statement name="HANDLER"><block type="tilemap_editor"><field name="tilemap">tiles.createTilemap(hex`1000100004040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040704040404040704040404040404080105010901090106010901030404040404040402040204040402040404040404040404030403040404030404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, [myTiles.transparency16,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,sprites.dungeon.chestClosed,sprites.dungeon.floorLight2,sprites.dungeon.buttonPink,sprites.dungeon.buttonTeal,myTiles.tile1,sprites.dungeon.chestOpen,myTiles.tile2], TileScale.Sixteen)</field><next><block type="variables_set"><field name="VAR" id="T@bvw2F8+Cb|,5JD$b-!">pause</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value><next><block type="variables_set"><field name="VAR" id="3VS{ls{1i@/K.M;,JHva">monkey</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+................................
+............fffff...............
+...........feeeeef..............
+..........fddddeeef.............
+.........cdfddfdeeff............
+.........cdfddfdeeddf...........
+........cdeeddddeebdc...........
+........cddddcddeebdc...........
+........cccccddeeefc............
+.........fddddeeeff.............
+..........fffffeeeef............
+............ffeeeeeef.ff........
+...........feefeefeef.ef........
+..........feefeefeeef.ef........
+.........fbdfdbfbbfeffef........
+.........fddfddfddbeffff........
+..........fffffffffffff.........
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.ShowPhysics</field><value name="sprite"><block type="variables_get"><field name="VAR" id="3VS{ls{1i@/K.M;,JHva">monkey</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">true</field></shadow></value><next><block type="camerafollow"><value name="sprite"><block type="variables_get"><field name="VAR" id="3VS{ls{1i@/K.M;,JHva">monkey</field></block></value><next><block type="game_control_sprite"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="2" _input_init="true"></mutation><value name="sprite"><block type="variables_get"><field name="VAR" id="3VS{ls{1i@/K.M;,JHva">monkey</field></block></value><value name="vx"><shadow type="math_number"><field name="NUM">100</field></shadow></value><value name="vy"><shadow type="math_number"><field name="NUM">100</field></shadow></value><next><block type="mapplaceontile"><value name="sprite"><block type="variables_get"><field name="VAR" id="3VS{ls{1i@/K.M;,JHva">monkey</field></block></value><value name="loc"><shadow type="mapgettile"><value name="col"><shadow type="math_number"><field name="NUM">5</field></shadow></value><value name="row"><shadow type="math_number"><field name="NUM">7</field></shadow></value></shadow></value><next><block type="variables_set"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+f f f f f f f f f f f f f f f f 
+f e e e e e e e e e e e e e e f 
+f e e e e e e e e e e e e e e f 
+f f e e e f f f f f f f f f f f 
+f f f e e e f f e f e e f e e f 
+f e f f e e e f f f e e f e e f 
+f e e f f e e e f f e e f e e f 
+f e e f f f e e e f f e f e e f 
+f e e f e f f e e e f f f e e f 
+f e e f e e f f e e e f f e e f 
+f e e f e e f f f e e e f f e f 
+f e e f e e f e f f e e e f f f 
+f f f f f f f f f f f e e e f f 
+f e e e e e e e e e e e e e e f 
+f e e e e e e e e e e e e e e f 
+f f f f f f f f f f f f f f f f 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">package</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="7Qcjy5`)C},y%kq1v3!{">blueButton</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . b 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">button</field></shadow></value></block></value><next><block type="mapplaceontile"><value name="sprite"><block type="variables_get"><field name="VAR" id="7Qcjy5`)C},y%kq1v3!{">blueButton</field></block></value><value name="loc"><shadow type="mapgettile"><value name="col"><shadow type="math_number"><field name="NUM">8</field></shadow></value><value name="row"><shadow type="math_number"><field name="NUM">7</field></shadow></value></shadow></value><next><block type="variables_set"><field name="VAR" id="{m80T9Oi4(VT(yNb5Q`h">pinkButton</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . b 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">button</field></shadow></value></block></value><next><block type="mapplaceontile"><value name="sprite"><block type="variables_get"><field name="VAR" id="{m80T9Oi4(VT(yNb5Q`h">pinkButton</field></block></value><value name="loc"><shadow type="mapgettile"><value name="col"><shadow type="math_number"><field name="NUM">2</field></shadow></value><value name="row"><shadow type="math_number"><field name="NUM">7</field></shadow></value></shadow></value><next><block type="variables_set"><field name="VAR" id="6Un$!X_^W+0K-MhtMk-]">unknown</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . b 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">unknownBin</field></shadow></value></block></value><next><block type="mapplaceontile"><value name="sprite"><block type="variables_get"><field name="VAR" id="6Un$!X_^W+0K-MhtMk-]">unknown</field></block></value><value name="loc"><shadow type="mapgettile"><value name="col"><shadow type="math_number"><field name="NUM">4</field></shadow></value><value name="row"><shadow type="math_number"><field name="NUM">9</field></shadow></value></shadow></value><next><block type="variables_set"><field name="VAR" id="tc05%X7l1|VSK-5Ufa|6">cheerio</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . b 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">cheerioBin</field></shadow></value></block></value><next><block type="mapplaceontile"><value name="sprite"><block type="variables_get"><field name="VAR" id="tc05%X7l1|VSK-5Ufa|6">cheerio</field></block></value><value name="loc"><shadow type="mapgettile"><value name="col"><shadow type="math_number"><field name="NUM">6</field></shadow></value><value name="row"><shadow type="math_number"><field name="NUM">9</field></shadow></value></shadow></value><next><block type="variables_set"><field name="VAR" id="rEh1bQ:njb].|V(/s^l-">upOrientation</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . b 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">upBin</field></shadow></value></block></value><next><block type="mapplaceontile"><value name="sprite"><block type="variables_get"><field name="VAR" id="rEh1bQ:njb].|V(/s^l-">upOrientation</field></block></value><value name="loc"><shadow type="mapgettile"><value name="col"><shadow type="math_number"><field name="NUM">12</field></shadow></value><value name="row"><shadow type="math_number"><field name="NUM">7</field></shadow></value></shadow></value><next><block type="variables_set"><field name="VAR" id="YLJz^{+-M0-]wN0ku6`Q">sideOrientation</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . b 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">sideBin</field></shadow></value></block></value><next><block type="mapplaceontile"><value name="sprite"><block type="variables_get"><field name="VAR" id="YLJz^{+-M0-]wN0ku6`Q">sideOrientation</field></block></value><value name="loc"><shadow type="mapgettile"><value name="col"><shadow type="math_number"><field name="NUM">10</field></shadow></value><value name="row"><shadow type="math_number"><field name="NUM">9</field></shadow></value></shadow></value><next><block type="function_call"><mutation name="resetBox" functionid="!v5JTp73B$SI-PJoXmu*"/></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="forever" x="1370" y="0"/><block type="keyonevent" x="2050" y="0"><field name="button">controller.B</field><field name="event">ControllerButtonEvent.Pressed</field><comment pinned="false" h="80" w="160" relx="10" rely="10">Pause the game, click reset to restart the game and bring back the box</comment><statement name="HANDLER"><block type="variables_set"><field name="VAR" id="T@bvw2F8+Cb|,5JD$b-!">pause</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="logic_negate"><value name="BOOL"><block type="variables_get"><field name="VAR" id="T@bvw2F8+Cb|,5JD$b-!">pause</field></block></value></block></value><next><block type="controls_if"><mutation else="1"/><value name="IF0"><shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow></value><statement name="DO0"><block type="spritesetvel"><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="vx"><shadow type="spriteSpeedPicker"><field name="speed">0</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker"><field name="speed">0</field></shadow></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.Ghost</field><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">true</field></shadow></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.Invisible</field><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">true</field></shadow></value></block></next></block></next></block></statement><statement name="ELSE"><block type="spritesetsetflag"><field name="flag">SpriteFlag.Ghost</field><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">false</field></shadow></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.Invisible</field><value name="sprite"><block type="variables_get"><field name="VAR" id="pm:~]!BT)W!TB~t(fAd%">box</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">false</field></shadow></value><next><block type="function_call"><mutation name="resetBox" functionid="!v5JTp73B$SI-PJoXmu*"/></block></next></block></next></block></statement><next><block type="camerafollow"><value name="sprite"><block type="variables_get"><field name="VAR" id="3VS{ls{1i@/K.M;,JHva">monkey</field></block></value></block></next></block></next></block></statement></block></xml>
