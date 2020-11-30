@@ -1,84 +1,83 @@
-namespace SpriteKind {
-    export const package = SpriteKind.create()
-    export const button = SpriteKind.create()
-    export const errorBin = SpriteKind.create()
-    export const cheerioBin = SpriteKind.create()
-    export const upBin = SpriteKind.create()
-    export const downBin = SpriteKind.create()
-    export const sideBin = SpriteKind.create()
-    export const unknownBin = SpriteKind.create()
-}
+@namespace
+class SpriteKind:
+    package = SpriteKind.create()
+    button = SpriteKind.create()
+    errorBin = SpriteKind.create()
+    cheerioBin = SpriteKind.create()
+    upBin = SpriteKind.create()
+    downBin = SpriteKind.create()
+    sideBin = SpriteKind.create()
+    unknownBin = SpriteKind.create()
+"""
 
-/** Create and place game map and objects */
-//  Pause the game, click reset to restart the game and bring back the box
-controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
-    
-    pause2 = !pause2
-    if (true) {
-        box.setVelocity(0, 0)
-        box.setFlag(SpriteFlag.Ghost, true)
-        box.setFlag(SpriteFlag.Invisible, true)
-    } else {
-        box.setFlag(SpriteFlag.Ghost, false)
-        box.setFlag(SpriteFlag.Invisible, false)
+Create and place game map and objects
+
+"""
+# Pause the game, click reset to restart the game and bring back the box
+
+def on_b_pressed():
+    global pause2
+    pause2 = not (pause2)
+    if True:
+        box.set_velocity(0, 0)
+        box.set_flag(SpriteFlag.GHOST, True)
+        box.set_flag(SpriteFlag.INVISIBLE, True)
+    else:
+        box.set_flag(SpriteFlag.GHOST, False)
+        box.set_flag(SpriteFlag.INVISIBLE, False)
         resetBox()
-    }
-    
-    scene.cameraFollowSprite(monkey)
-})
-//  Reset to initial conditions with new box and parameters for type and dimensions
-function resetBox() {
-    
+    scene.camera_follow_sprite(monkey)
+controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
+
+# Reset to initial conditions with new box and parameters for type and dimensions
+def resetBox():
+    global _type, boxLength, boxWidth, boxHeight, objectMaterial, objectWeight, orientation
     _type = randint(0, 2)
-    if (_type == 0) {
+    if _type == 0:
         boxLength = 10
         boxWidth = 10
         boxHeight = 30
         objectMaterial = "Rubber"
         objectWeight = 1
-    } else if (_type == 1) {
+    elif _type == 1:
         boxLength = 20
         boxWidth = 20
         boxHeight = 20
         orientation = randint(0, 1)
         objectMaterial = "Porcelain"
         objectWeight = 0.2
-    } else {
+    else:
         boxLength = randint(10, 20)
         boxWidth = randint(10, 20)
         boxHeight = randint(10, 30)
         objectMaterial = "Unknown"
         objectWeight = randint(0, 2)
-    }
-    
-    console.log(_type)
-    pinkButton.setFlag(SpriteFlag.Ghost, false)
-    blueButton.setFlag(SpriteFlag.Ghost, false)
-    box.setFlag(SpriteFlag.Invisible, true)
+    print(_type)
+    pinkButton.set_flag(SpriteFlag.GHOST, False)
+    blueButton.set_flag(SpriteFlag.GHOST, False)
+    box.set_flag(SpriteFlag.INVISIBLE, True)
     pause(500)
-    tiles.placeOnTile(box, tiles.getTileLocation(0, 7))
-    box.setFlag(SpriteFlag.Invisible, false)
+    tiles.place_on_tile(box, tiles.get_tile_location(0, 7))
+    box.set_flag(SpriteFlag.INVISIBLE, False)
     pause(200)
-    box.setVelocity(25, 0)
-}
-
-let orientation = 0
-let objectWeight = 0
-let objectMaterial = ""
-let boxHeight = 0
-let boxWidth = 0
-let boxLength = 0
-let _type = 0
-let pinkButton : Sprite = null
-let blueButton : Sprite = null
-let box : Sprite = null
-let monkey : Sprite = null
-let pause2 = false
-tiles.setTilemap(tilemap`
+    box.set_velocity(25, 0)
+orientation = 0
+objectWeight = 0
+objectMaterial = ""
+boxHeight = 0
+boxWidth = 0
+boxLength = 0
+_type = 0
+pinkButton: Sprite = None
+blueButton: Sprite = None
+box: Sprite = None
+monkey: Sprite = None
+pause2 = False
+tiles.set_tilemap(tilemap("""
     level
-`)
-pause2 = false
-monkey = sprites.create(img`
+"""))
+pause2 = False
+monkey = sprites.create(img("""
         ................................
             ................................
             ................................
@@ -111,12 +110,13 @@ monkey = sprites.create(img`
             .........fbdfdbfbbfeffef........
             .........fddfddfddbeffff........
             ..........fffffffffffff.........
-    `, SpriteKind.Player)
-monkey.setFlag(SpriteFlag.ShowPhysics, true)
-scene.cameraFollowSprite(monkey)
-controller.moveSprite(monkey, 100, 100)
-tiles.placeOnTile(monkey, tiles.getTileLocation(5, 7))
-box = sprites.create(img`
+    """),
+    SpriteKind.player)
+monkey.set_flag(SpriteFlag.SHOW_PHYSICS, True)
+scene.camera_follow_sprite(monkey)
+controller.move_sprite(monkey, 100, 100)
+tiles.place_on_tile(monkey, tiles.get_tile_location(5, 7))
+box = sprites.create(img("""
         f f f f f f f f f f f f f f f f 
             f e e e e e e e e e e e e e e f 
             f e e e e e e e e e e e e e e f 
@@ -133,8 +133,9 @@ box = sprites.create(img`
             f e e e e e e e e e e e e e e f 
             f e e e e e e e e e e e e e e f 
             f f f f f f f f f f f f f f f f
-    `, SpriteKind.package)
-blueButton = sprites.create(img`
+    """),
+    SpriteKind.package)
+blueButton = sprites.create(img("""
         . . . . . . . . . . . . . . . b 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -151,9 +152,10 @@ blueButton = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
-    `, SpriteKind.button)
-tiles.placeOnTile(blueButton, tiles.getTileLocation(8, 7))
-pinkButton = sprites.create(img`
+    """),
+    SpriteKind.button)
+tiles.place_on_tile(blueButton, tiles.get_tile_location(8, 7))
+pinkButton = sprites.create(img("""
         . . . . . . . . . . . . . . . b 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -170,9 +172,10 @@ pinkButton = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
-    `, SpriteKind.button)
-tiles.placeOnTile(pinkButton, tiles.getTileLocation(2, 7))
-let unknown = sprites.create(img`
+    """),
+    SpriteKind.button)
+tiles.place_on_tile(pinkButton, tiles.get_tile_location(2, 7))
+unknown = sprites.create(img("""
         . . . . . . . . . . . . . . . b 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -189,9 +192,10 @@ let unknown = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
-    `, SpriteKind.unknownBin)
-tiles.placeOnTile(unknown, tiles.getTileLocation(4, 9))
-let cheerio = sprites.create(img`
+    """),
+    SpriteKind.unknownBin)
+tiles.place_on_tile(unknown, tiles.get_tile_location(4, 9))
+cheerio = sprites.create(img("""
         . . . . . . . . . . . . . . . b 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -208,9 +212,10 @@ let cheerio = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
-    `, SpriteKind.cheerioBin)
-tiles.placeOnTile(cheerio, tiles.getTileLocation(6, 9))
-let upOrientation = sprites.create(img`
+    """),
+    SpriteKind.cheerioBin)
+tiles.place_on_tile(cheerio, tiles.get_tile_location(6, 9))
+upOrientation = sprites.create(img("""
         . . . . . . . . . . . . . . . b 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -227,9 +232,10 @@ let upOrientation = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
-    `, SpriteKind.upBin)
-tiles.placeOnTile(upOrientation, tiles.getTileLocation(12, 7))
-let sideOrientation = sprites.create(img`
+    """),
+    SpriteKind.upBin)
+tiles.place_on_tile(upOrientation, tiles.get_tile_location(12, 7))
+sideOrientation = sprites.create(img("""
         . . . . . . . . . . . . . . . b 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -246,42 +252,46 @@ let sideOrientation = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
-    `, SpriteKind.sideBin)
-tiles.placeOnTile(sideOrientation, tiles.getTileLocation(10, 9))
+    """),
+    SpriteKind.sideBin)
+tiles.place_on_tile(sideOrientation, tiles.get_tile_location(10, 9))
 resetBox()
-function stop_box() {
-    box.setVelocity(0, 0)
-}
 
-function go_to(target_x: number, target_y: number) {
-    box.vx = 50
-    pause((target_x - box.x) / box.vx * 1000)
-    stop_box()
-    box.vy = 50
-    pause((target_y - box.y) / box.vy * 1000)
-    stop_box()
-}
+def stop_box():
+    box.set_velocity(0, 0)
 
-forever(function on_forever() {
-    scene.cameraFollowSprite(box)
-    if (box.overlapsWith(pinkButton)) {
+def go_to(target_x, target_y):
+    box.vx=50
+    pause(((target_x-box.x)/box.vx)*1000)
+    stop_box()
+    box.vy=50
+    pause(((target_y-box.y)/box.vy)*1000)
+    stop_box()
+
+def on_forever():
+    scene.camera_follow_sprite(box)
+    if box.overlaps_with(pinkButton):
         stop_box()
-        if (objectMaterial == "Unknown") {
+        if objectMaterial=="Unknown":
             go_to(unknown.x, unknown.y)
-        } else if (objectMaterial == "Porcelain") {
+        elif objectMaterial=="Porcelain":
             go_to(cheerio.x, cheerio.y)
-        } else {
+        else:
             go_to(blueButton.x, blueButton.y)
-            if (orientation == 0) {
+            if orientation==0:
                 go_to(upOrientation.x, upOrientation.y)
-            }
-            
-            if (orientation == 1) {
+            if orientation==1:
                 go_to(sideOrientation.x, sideOrientation.y)
-            }
+
             
-        }
-        
-    }
+
+
     
-})
+            
+
+           
+
+
+
+
+forever(on_forever)
