@@ -9,6 +9,7 @@ namespace SpriteKind {
     export const unknownBin = SpriteKind.create()
 }
 
+/** Create and place game map and objects */
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     
     pause2 = !pause2
@@ -60,11 +61,15 @@ function resetBox() {
     box.setVelocity(25, 0)
 }
 
+function stop_box() {
+    box.setVelocity(0, 0)
+}
+
 function go_to(target_x: number, target_y: number, final: boolean = false) {
-    box.vx = 50
+    box.vx = 25
     pause((target_x - box.x) / box.vx * 1000)
     stop_box()
-    box.vy = 50
+    box.vy = 25
     pause((target_y - box.y) / box.vy * 1000)
     stop_box()
     if (final) {
@@ -73,12 +78,7 @@ function go_to(target_x: number, target_y: number, final: boolean = false) {
     
 }
 
-function stop_box() {
-    box.setVelocity(0, 0)
-}
-
 /** Pause the game, click reset to restart the game and bring back the box */
-/** Create and place game map and objects */
 let orientation = 0
 let objectWeight = 0
 let objectMaterial = ""
@@ -87,11 +87,12 @@ let boxWidth = 0
 let boxLength = 0
 let _type = 0
 let pinkButton : Sprite = null
-let blueButton : Sprite = null
-let box : Sprite = null
 let monkey : Sprite = null
 let pause2 = false
+let box : Sprite = null
+let blueButton : Sprite = null
 let TOP = 1
+let SIDE = 0
 tiles.setTilemap(tilemap`
     level
 `)
@@ -268,20 +269,28 @@ let sideOrientation = sprites.create(img`
 tiles.placeOnTile(sideOrientation, tiles.getTileLocation(10, 9))
 resetBox()
 forever(function on_forever() {
-    let SIDE: number;
     scene.cameraFollowSprite(box)
     if (box.overlapsWith(pinkButton)) {
         stop_box()
         if (objectMaterial == "Unknown") {
+            box.say("Material: Unknown", 1000)
+            pause(1000)
             go_to(unknown.x, unknown.y, true)
         } else if (objectMaterial == "Porcelain") {
+            box.say("Material: Porcelain", 1000)
+            pause(1000)
             go_to(cheerio.x, cheerio.y, true)
         } else {
-            SIDE = 0
+            box.say("Material: Rubber", 1000)
+            pause(1000)
             go_to(blueButton.x, blueButton.y)
             if (orientation == SIDE) {
+                box.say("Orientation: Side", 1000)
+                pause(1000)
                 go_to(sideOrientation.x, sideOrientation.y, true)
             } else if (orientation == TOP) {
+                box.say("Orientation: Top", 1000)
+                pause(1000)
                 go_to(upOrientation.x, upOrientation.y, true)
             }
             

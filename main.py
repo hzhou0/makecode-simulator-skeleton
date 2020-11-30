@@ -8,6 +8,11 @@ class SpriteKind:
     downBin = SpriteKind.create()
     sideBin = SpriteKind.create()
     unknownBin = SpriteKind.create()
+"""
+
+Create and place game map and objects
+
+"""
 
 def on_b_pressed():
     global pause2
@@ -55,26 +60,20 @@ def resetBox():
     box.set_flag(SpriteFlag.INVISIBLE, False)
     pause(200)
     box.set_velocity(25, 0)
-
-def go_to(target_x: number, target_y: number, final=False):
-    box.vx = 50
+def stop_box():
+    box.set_velocity(0, 0)
+def go_to(target_x: number, target_y: number, final: bool = False):
+    box.vx = 25
     pause((target_x - box.x) / box.vx * 1000)
     stop_box()
-    box.vy = 50
+    box.vy = 25
     pause((target_y - box.y) / box.vy * 1000)
     stop_box()
     if final:
         resetBox()
-def stop_box():
-    box.set_velocity(0, 0)
 """
 
 Pause the game, click reset to restart the game and bring back the box
-
-"""
-"""
-
-Create and place game map and objects
 
 """
 orientation = 0
@@ -85,11 +84,12 @@ boxWidth = 0
 boxLength = 0
 _type = 0
 pinkButton: Sprite = None
-blueButton: Sprite = None
-box: Sprite = None
 monkey: Sprite = None
 pause2 = False
+box: Sprite = None
+blueButton: Sprite = None
 TOP = 1
+SIDE = 0
 tiles.set_tilemap(tilemap("""
     level
 """))
@@ -279,15 +279,23 @@ def on_forever():
     if box.overlaps_with(pinkButton):
         stop_box()
         if objectMaterial == "Unknown":
+            box.say("Material: Unknown", 1000)
+            pause(1000)
             go_to(unknown.x, unknown.y, True)
         elif objectMaterial == "Porcelain":
+            box.say("Material: Porcelain", 1000)
+            pause(1000)
             go_to(cheerio.x, cheerio.y, True)
         else:
-            SIDE = 0
+            box.say("Material: Rubber", 1000)
+            pause(1000)
             go_to(blueButton.x, blueButton.y)
             if orientation == SIDE:
+                box.say("Orientation: Side", 1000)
+                pause(1000)
                 go_to(sideOrientation.x, sideOrientation.y, True)
             elif orientation == TOP:
-                go_to(upOrientation.x, upOrientation.y,True)
-                
+                box.say("Orientation: Top", 1000)
+                pause(1000)
+                go_to(upOrientation.x, upOrientation.y, True)
 forever(on_forever)
