@@ -8,12 +8,6 @@ class SpriteKind:
     downBin = SpriteKind.create()
     sideBin = SpriteKind.create()
     unknownBin = SpriteKind.create()
-"""
-
-Create and place game map and objects
-
-"""
-# Pause the game, click reset to restart the game and bring back the box
 
 def on_b_pressed():
     global pause2
@@ -61,6 +55,28 @@ def resetBox():
     box.set_flag(SpriteFlag.INVISIBLE, False)
     pause(200)
     box.set_velocity(25, 0)
+
+def go_to(target_x: number, target_y: number, final=False):
+    box.vx = 50
+    pause((target_x - box.x) / box.vx * 1000)
+    stop_box()
+    box.vy = 50
+    pause((target_y - box.y) / box.vy * 1000)
+    stop_box()
+    if final:
+        resetBox()
+def stop_box():
+    box.set_velocity(0, 0)
+"""
+
+Pause the game, click reset to restart the game and bring back the box
+
+"""
+"""
+
+Create and place game map and objects
+
+"""
 orientation = 0
 objectWeight = 0
 objectMaterial = ""
@@ -73,6 +89,7 @@ blueButton: Sprite = None
 box: Sprite = None
 monkey: Sprite = None
 pause2 = False
+TOP = 1
 tiles.set_tilemap(tilemap("""
     level
 """))
@@ -257,41 +274,20 @@ sideOrientation = sprites.create(img("""
 tiles.place_on_tile(sideOrientation, tiles.get_tile_location(10, 9))
 resetBox()
 
-def stop_box():
-    box.set_velocity(0, 0)
-
-def go_to(target_x, target_y):
-    box.vx=50
-    pause(((target_x-box.x)/box.vx)*1000)
-    stop_box()
-    box.vy=50
-    pause(((target_y-box.y)/box.vy)*1000)
-    stop_box()
-
 def on_forever():
     scene.camera_follow_sprite(box)
     if box.overlaps_with(pinkButton):
         stop_box()
-        if objectMaterial=="Unknown":
-            go_to(unknown.x, unknown.y)
-        elif objectMaterial=="Porcelain":
-            go_to(cheerio.x, cheerio.y)
+        if objectMaterial == "Unknown":
+            go_to(unknown.x, unknown.y, True)
+        elif objectMaterial == "Porcelain":
+            go_to(cheerio.x, cheerio.y, True)
         else:
+            SIDE = 0
             go_to(blueButton.x, blueButton.y)
-            if orientation==0:
-                go_to(upOrientation.x, upOrientation.y)
-            if orientation==1:
-                go_to(sideOrientation.x, sideOrientation.y)
-
-            
-
-
-    
-            
-
-           
-
-
-
-
+            if orientation == SIDE:
+                go_to(sideOrientation.x, sideOrientation.y, True)
+            elif orientation == TOP:
+                go_to(upOrientation.x, upOrientation.y,True)
+                
 forever(on_forever)
